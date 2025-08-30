@@ -1,7 +1,3 @@
-Harika — dosyaları göndermen gerekmeden işe yarar, hazır bir **README.md** yazdım. (Ekran görüntüsü/logo gibi şeyler paylaşırsan, yerlerini doldurur ve bağlantıları eklerim.)
-Aşağıda **Türkçe** ve **İngilizce** bölümler birlikte; tek dosyada kullanabilirsin.
-
----
 
 # MiaConvert
 
