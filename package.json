@@ -1,0 +1,79 @@
+{
+  "name": "MiaConvert",
+  "version": "3.0.0",
+  "main": "main.js",
+  "scripts": {
+    "dev": "electron .",
+    "start": "electron .",
+    "build:win": "electron-builder --win portable",
+    "build:nsis": "electron-builder --win nsis",
+    "build:zip": "electron-builder --win zip"
+  },
+  "dependencies": {
+    "ffmpeg-static": "^5.2.0",
+    "youtube-dl-exec": "^3.0.10",
+    "electron-store": "^9.0.0"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "build": {
+    "appId": "net.mymiamo.miaconvert",
+    "productName": "MiaConvert",
+    "files": [
+      "main.js",
+      "version.json",
+      "preload.js",
+      "renderer/**/*",
+      "package.json",
+      "build/**/*",
+      "!**/*.map"
+    ],
+    "asar": true,
+    "asarUnpack": [
+      "**/*.node"
+    ],
+    "extraResources": [
+      {
+        "from": "node_modules/youtube-dl-exec",
+        "to": "bin",
+        "filter": [
+          "yt-dlp.exe"
+        ]
+      },
+      {
+        "from": "node_modules/ffmpeg-static",
+        "to": "bin",
+        "filter": [
+          "ffmpeg.exe"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico",
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "MiaConvert",
+      "deleteAppDataOnUninstall": true
+    }
+  }
+}

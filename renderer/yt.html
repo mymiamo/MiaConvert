@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MiaConvert</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    
+  </style>
+</head>
+
+<body>
+  <h1>MiaConvert</h1>
+
+
+  <label>Video URL</label>
+  <input id="url" type="text" placeholder="https://www.youtube.com/watch?v=..." />
+
+  <fieldset>
+    <legend>Mod & Çıktı</legend>
+    <div class="grid">
+      <div>
+        <label>Mod</label>
+        <select id="mode">
+          <option value="video" selected>Video</option>
+          <option value="audio">Sadece Ses</option>
+        </select>
+      </div>
+
+      <div id="video-ext-group">
+        <label>Video Uzantısı</label>
+        <select id="videoContainer">
+          <option value="mp4" selected>mp4</option>
+          <option value="mkv">mkv</option>
+        </select>
+      </div>
+
+      <div id="audio-ext-group" style="display:none;">
+        <label>Ses Formatı</label>
+        <select id="audioFormat">
+          <option value="mp3" selected>mp3</option>
+          <option value="opus">opus</option>
+          <option value="m4a">m4a</option>
+        </select>
+      </div>
+
+      <div id="quality-group">
+        <label>Kalite (Video)</label>
+        <select id="videoQuality">
+          <option value="best" selected>En İyi</option>
+          <option value="2160p">2160p</option>
+          <option value="1440p">1440p</option>
+          <option value="1080p">1080p</option>
+          <option value="720p">720p</option>
+          <option value="480p">480p</option>
+          <option value="360p">360p</option>
+        </select>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="row" style="margin:8px 0 12px;">
+    <button id="choose">Klasör Seç</button>
+    <span id="outDir" class="muted">Varsayılan olarak indirilenler klasörüne yüklenir.</span>
+     
+  </div>
+
+  <div class="row" style="margin:12px 0;">
+    <button id="start">İndir</button>
+    <button id="cancel" disabled>İptal</button>
+  </div>
+
+  <progress id="bar" max="100" value="0"></progress>
+  <div id="percent" class="muted">%0</div>
+
+  <h3>Günlük</h3>
+  <div id="log"></div>
+
+  <script src="renderer.js"></script>
+</body>
+
+</html>
